@@ -7,15 +7,40 @@ submit.addEventListener("click", () => {
     <article class="card" id="card--${counter}">
     <div>${document.querySelector("#card-input").value}</div>
     <div>
-        <button id="delete--${counter}">Delete This Card</button>
+        <button onclick="deleteCard('card--${counter}')" id="delete--${counter}">Delete This Card</button>
     </div>
     </article>`;
+
+
+
+    // let article = document.createElement("article");
+    // article.classList.add("card");
+    // article.id = `card--${counter}`;
+    // let div1 = document.createElement("div");
+    // div1.innerText = document.querySelector("#card-input").value;
+    // article.appendChild(div1);
+    // let div2 = document.createElement("div");
+    // let button = document.createElement("button");
+    // button.id = `delete--${counter}`;
+    // button.innerText = "Delete This Card";
+    // div2.appendChild(button);
+    // article.appendChild(div2);
+
+    // deleteDiv.appendChild(article);
+
+    // button.addEventListener("click", () => {
+    //     article.parentNode.removeChild(article)
+    // })
+
     counter++;
 })
 
-deleteDiv.addEventListener("click", (event) => {
-    console.log(event.toElement.innerHTML === "Delete This Card")
-    if (event.toElement.innerHTML === "Delete This Card") {
-        deleteDiv.removeChild(event.toElement.parentNode.parentNode)
-    }
-})
+function deleteCard(id) {
+    document.getElementById(id).remove();
+}
+
+// deleteDiv.addEventListener("click", (event) => {
+//     if (event.toElement.innerHTML === "Delete This Card") {
+//         deleteDiv.removeChild(event.toElement.parentNode.parentNode)
+//     }
+// })
